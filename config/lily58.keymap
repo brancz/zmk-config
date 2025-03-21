@@ -10,18 +10,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-    macros {
-        gui_and_lower: gui_and_lower {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_press &mo 1>
-                , <&macro_pause_for_release>
-                , <&macro_release &mo 1>
-                , <&macro_release &kp LGUI>;
-        };
-    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -31,14 +19,14 @@
             // |  ESC  |  Q  |  W  |  F   |  P   |  G   |                   |  J   |  L    |  U    |  Y   | ;     | BSPC  |
             // |  TAB  |  A  |  R  |  S   |  T   |  D   |                   |  H   |  N    |  E    |  I   | O     | ENTER |
             // | SHIFT |  Z  |  X  |  C   |  V   |  B   |        |  |       |  K   |  M    |  ,    |  .   | /     | SHIFT |
-            //                     |      |      | GUIL |  LOWER |  | SPACE | LOWER|       |       |
+            //                     |      |      | LGUI |  LOWER |  | SPACE | LOWER|       |       |
 
             bindings = <
-&trans     &trans  &trans   &trans    &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
-&kp ESC    &kp Q   &kp W    &kp F     &kp P     &kp G                       &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &kp BSPC
-&kp TAB    &kp A   &kp R    &kp S     &kp T     &kp D                       &kp H     &kp N     &kp E     &kp I     &kp O     &kp ENTER
-&kp LSHFT  &kp Z   &kp X    &kp C     &kp V     &kp B           &trans      &kp K     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
-                            &trans    &trans    &gui_and_lower  &mo 1       &kp SPACE &mo 1     &trans    &trans
+&trans     &trans  &trans   &trans    &trans    &trans                         &trans    &trans    &trans    &trans    &trans    &trans
+&kp ESC    &kp Q   &kp W    &kp F     &kp P     &kp G                          &kp J     &kp L     &kp U     &kp Y     &kp SEMI  &kp BSPC
+&kp TAB    &kp A   &kp R    &kp S     &kp T     &kp D                          &kp H     &kp N     &kp E     &kp I     &kp O     &kp ENTER
+&kp LSHFT  &kp Z   &kp X    &kp C     &kp V     &kp B    &trans      &trans    &kp K     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
+                            &trans    &trans    &kp LGUI &mo 1       &kp SPACE &mo 1     &trans    &trans
             >;
         };
 
