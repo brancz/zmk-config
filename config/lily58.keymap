@@ -10,6 +10,16 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+    macros {
+        gui_and_lower: gui_and_lower {
+            label = "GUI_AND_LOWER";
+            compatible = "zmk,behavior-macro";
+            bindings
+                = <&macro_press &kp LGUI &mo 1>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LGUI &mo 1>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -19,14 +29,14 @@
             // |  ESC  |  Q  |  W  |  F   |  P   |  G   |                   |  L   |  U    |  Y    |  -   | BSPC  |       |
             // |  TAB  |  A  |  R  |  S   |  T   |  D   |                   |  H   |  N    |  E    |  I   | ENTER |       |
             // | SHIFT |  Z  |  X  |  C   |  V   |  B   |        |  |       |  K   |  M    |  ,    |  .   | SHIFT |       |
-            //                     |      |      | LGUI |  LOWER |  | SPACE | LOWER|       |       |
+            //                     |      |      | GUIL |  LOWER |  | SPACE | LOWER|       |       |
 
             bindings = <
 &trans     &trans  &trans   &trans    &trans    &trans                         &trans   &trans    &trans    &trans    &trans    &trans
 &kp ESC    &kp Q   &kp W    &kp F     &kp P     &kp G                          &kp L    &kp U     &kp Y     &kp MINUS &kp BSPC  &trans
 &kp TAB    &kp A   &kp R    &kp S     &kp T     &kp D                          &kp H    &kp N     &kp E     &kp I     &kp ENTER &trans
-&kp LSHFT  &kp Z   &kp X    &kp C     &kp V     &kp B     &trans     &trans    &kp K    &kp M     &kp COMMA &kp DOT   &kp RSHFT &trans
-                            &trans    &trans    &kp LGUI  &mo 1      &kp SPACE &mo 1    &trans    &trans
+&kp LSHFT  &kp Z   &kp X    &kp C     &kp V     &kp B              &trans      &trans    &kp K    &kp M     &kp COMMA &kp DOT   &kp RSHFT &trans
+                            &trans    &trans    &kp GUI_AND_LOWER  &mo 1       &kp SPACE &mo 1    &trans    &trans
             >;
         };
 
